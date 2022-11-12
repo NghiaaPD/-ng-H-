@@ -1,0 +1,23 @@
+from tkinter import*#Thư viên tkinter
+from tkinter.ttk import*#Thư viện tkinter
+from time import*#Thư viện Time
+from PIL import Image,ImageTk
+
+
+root=Tk()#(1)
+root.geometry("580x150")
+root.title("Đồng Hồ")#(2)
+Label_1 = Label(root,background=  "#ab23ff",font=("Digital-7",100), foreground="white")
+Label_1.place(x=1,y=0)
+root.wm_attributes('-transparentcolor', '#ab23ff')
+
+def clock():
+    time = strftime("%H:%M:%S:%p")#Sử dụng hàm strftime để tạo giờ:phút:giây:thời gian vào tối hoặc sáng
+    Label_1.configure(text = time)#Gán hàm strftime vào label A
+    Label_1.after(1000,clock)#đặt thời gian sẽ thay đổi sau mỗi 1000ms(=1s)
+clock()
+
+
+
+
+root.mainloop()
